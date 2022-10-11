@@ -1,0 +1,78 @@
+-git init : create a local repository
+-git config --global user.name "name"
+-git config --global user.email "email"
+-git status: to check files that are ready for commit and files that aren't
+-git add "file name" :to add file to ready to commit files
+-git commit -m "comment": to commit tracked files
+-git commit -a -m "comment": to both stage all files and commit them
+-git rm --cached "file_name":to stop tracking a file : remove it from git tree
+-git rm -r --cached "directory_name/": remove it from git tree (whole dir)
+
+-create the .gitignore file with "touch .gitignore" and put all files and dirs that you want to remove from staging: 
+open this file with "nano .gitignore" and add them.
+
+-git log -2: to display the commit history limited to only the last tow commits
+-git config --global core.editor "notepad": to make notpad my default editor for "commit comments"
+-git commit --amend: to amend last commit and git commit --amend --no-edit: to amend last commit without change the comment
+-git restore --staged "file_name": to remove file from files staged list
+-git restore "file_name": to remove changes lastly added to a file
+-git branch brach_name:to create a branch
+-git checkout -b branch_name:to create a branch and switch toward directly
+-git log --all:
+-git log branch_name: to see history inside that branch
+-git checkout branch_name: to switch to that branch
+
+
+-link you local repository to remote one:
+1. git remote add origin "https//github..."
+2.git push origin -u master
+
+
+--------FILES CREATED ON ONE BRANCH CAN NOT ACCESS THEM NEITHER DO APPEAR ON ANOTHER BRANCH-----------------------
+
+-git push origin -u branch_name:push branch on the remote repository
+-git branch -d branch_name: to delete branch from list of branches on local repository
+-git push origin --delete branch_name:to delete branch from list of branches on remote repository
+
+-To pull requests on github: 
+-> choose pull request 
+->then you press new pull request 
+-> then you select the branch you want to move and commit  files from
+
+- For merge : 
+-> you choose reviewer and asignee, 
+-> you write the comments you want near changes in codes, 
+-> then you choose rebase and merge to conserve the commits 
+
+- git fetch: to save all changes (coming from other merges) from remote repository on your local one.
+-git merge : to merge the changes already dowloaded and saved thanks to git fetch
+-git pull=git fetch+git merge
+
+----------------------------------RESOUDRE LES CONFLITS DE MERGE---------------------------------------------
+Avant de add, commit et push vers le master:
+
+- Il faut tout d'abord pull depuis master: !!!!! git pull --rebase origin master !!!!
+- Resoudre les conflits manuellement
+- git add .
+- git rebase --continue
+- git push/git push --force-with-lease
+
+
+---------------------------------INTERACTIVE REBASE TO MODIFY AND COMBINE COMMIT COMMENT-----------------------
+- git rebase -i HEAD~n(n is the number of commits you want to access)
+- Then you choose the command you like : Exemple: r before comment to change it, s before all commits 
+but the one you want to keep to allow the squash
+
+----------------------------------TO RESET CHANGES---------------------------------------------------------------
+-git reset --soft branch_name: to reset changes on staging 
+-git reset --mixed branch_name: to reset changes before staging
+-git reset --hard branch_name: to reset changes and return before they existed
+-----------------------------------TO PUT CHANGES ASIDE FOR NOW--------------------------------------------------
+-git stash: to save changes on stash list as if they new happen
+-git stash apply: to retrieve changes from stash doesn't matter where we are now (from any branch)
+-git stash pop: to remove a stash from stash list and retrieve it on working place
+-git stash -u : to stash files not yet on stage 
+
+-----------------------------------TO RESET LOST COMMIT------------------------------------------------------
+-git reflog --since="n.hour/day": to get back the list of all commits
+Then we can reset the commit we lost via either by creating a new branch or by reset it on the main one.

@@ -1,0 +1,17 @@
+https://search.maven.org/: for searching for dependencies for a spring project
+https://mvnrepository.com/:for searching for dependencies for a spring project
+https://repo.spring.io/: for downloading spring jar files and more
+https://hibernate.org/: for downloading hibernate jar files and more
+https://tomcat.apache.org/: to install tomcat web server 
+https://start.spring.io/: for starting a new spring project
+https://www.javatpoint.com/jstl: for jstl tags
+
+:: To know if eclipse support maven archetype:
+1. Help
+2. Install new softwares
+3. Already installed
+4. search for M2E: Maven Integration for Eclipse and M2E:Maven Integration for WTP
+
+:: To start a maven project using archetypes:
+1. New -> maven project -> choose the suitable achetype -> fill the GAV and finish
+
