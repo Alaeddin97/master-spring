@@ -76,3 +76,6 @@ but the one you want to keep to allow the squash
 -----------------------------------TO RESET LOST COMMIT------------------------------------------------------
 -git reflog --since="n.hour/day": to get back the list of all commits
 Then we can reset the commit we lost via either by creating a new branch or by reset it on the main one.
+
+
+git config --global http.sslbackend schannel: to resolve the SSL certificate issue
